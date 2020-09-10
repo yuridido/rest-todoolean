@@ -11,12 +11,43 @@ $(document).ready(function() {
         eliminaVoce(id)
     });
 
+    $(document).on('keydown', '.modifica', function(event) {
+        if (event.which == 13) {
+            var id = $(this).parents().attr('data-id');
+            var testoMod = $(this).val();
+            console.log(testoMod);
+            modificaVoce(id, testoMod)
+        }
+    });
+
 
 
 
 
 
 // FUNZIONI
+    function modificaVoce(id, text) {
+        $.ajax(
+            {
+                url: 'http://157.230.17.132:3009/todos/' + id,
+                method: 'PATCH',
+                data: {
+                    text: text
+                },
+                success: function(data) {
+
+                    svuota();
+                    getData();
+
+                },
+                error: function() {
+                    alert('errore');
+                }
+            }
+        )
+    }
+
+
     function creaVoce() {
         var elemento = $('#nuova-voce').val()
         $.ajax(
@@ -24,7 +55,7 @@ $(document).ready(function() {
                 url: 'http://157.230.17.132:3009/todos',
                 method: 'POST',
                 data: {
-                    text: elemento,
+                    text: elemento
                 },
                 success: function() {
                     svuota();

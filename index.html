@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
         <title></title>
@@ -17,7 +18,7 @@
 
         <script id="entry-template" type="text/x-handlebars-template">
             <li class="riga" data-id="{{id}}">
-                <span>{{testo}}</span>
+                <span class="testo">{{testo}}</span>
                 <span class="delete">   X</span>
                 <input class="modifica" type="text" name="" value="">
             </li>
